@@ -110,7 +110,7 @@ def get_dvr():
                 log('Disabling DVR, enable-dvr requires the use of the vxlan '
                     'overlay network for OpenStack Juno')
                 return False
-        if get_l3ha():
+        if get_l3ha() and CompareOpenStackReleases(release) < 'newton':
             log('Disabling DVR, enable-l3ha must be disabled with dvr')
             return False
         if not get_l2population():
